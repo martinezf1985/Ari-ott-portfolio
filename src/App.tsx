@@ -1,0 +1,167 @@
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import PhotoCarousel from "./components/PhotoCarousel";
+import PhotoGrid from "./components/PhotoGrid";
+//import ArtCarousel from "./components/ArtCarousel";
+import ActorExperience from "./components/ActorExperience";
+import Footer from "./components/Footer";
+import ContactSection from "./components/ContactSection";
+import YouTubeSpotlight from "./components/YouTubeSpotlight";
+import BackgroundMusicPlayer from "./components/BackgroundMusicPlayer";
+import Cover from "./components/Cover";
+import { AudioControlProvider } from "./context/AudioControlContext";
+
+
+const App: React.FC = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showCover, setShowCover] = useState(true);
+
+  const photoRef = useRef<HTMLDivElement>(null);
+  const artRef = useRef<HTMLDivElement>(null);
+  const actorRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const location = useLocation();
+  const isFirstMount = useRef(true);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    // Ahora el map acepta RefObject<HTMLDivElement | null>
+    const sectionMap: Record<string, React.RefObject<HTMLDivElement | null>> = {
+      "/": photoRef,
+      "/art": artRef,
+      "/actor": actorRef,
+      "/contact": contactRef,
+    };
+    const ref = sectionMap[location.pathname];
+    if (ref?.current) {
+      setTimeout(() => {
+        ref.current!.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleEnterPortfolio = () => {
+    setShowCover(false);
+    // Guardar en localStorage para no mostrar el cover nuevamente en esta sesión
+    localStorage.setItem('coverShown', 'true');
+  };
+
+  // Verificar si el cover ya fue mostrado en esta sesión
+  useEffect(() => {
+    const coverShown = localStorage.getItem('coverShown');
+    if (coverShown === 'true') {
+      setShowCover(false);
+    }
+  }, []);
+
+  return (
+    <AudioControlProvider>
+    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-black to-black text-white overflow-x-hidden">
+      {/* Cover Screen */}
+      {showCover && <Cover onEnter={handleEnterPortfolio} />}
+      
+      {!showCover && (
+        <>
+      <header className="py-6 bg-black/70 shadow-md">
+        <NavBar />
+      </header>
+
+      <section className="text-center py-12">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-wide">
+          Ariel ottaviani– Actor & Artista Visual
+        </h1>
+        <p className="mt-4 text-gray-300 text-lg">
+          Portfolio profesional y artístico
+        </p>
+      </section>
+
+      <section
+        ref={photoRef}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 bg-black"
+      >
+        <PhotoCarousel />
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl font-bold text-violet-300 mb-4">
+            Galería Fotográfica
+          </h2>
+          <p className="text-gray-400">
+            Fotografías seleccionadas de proyectos actorales y artísticos.
+          </p>
+        </div>
+      </section>
+
+        {/* Galería en Cuadrícula */}
+        <section className="px-6 py-16 bg-gray-950/90">
+          <PhotoGrid />
+        </section>
+
+      {/* <section
+        ref={artRef}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 items-center bg-gray-950/90"
+      >
+        <div>
+          <h2 className="text-3xl font-semibold text-violet-400 mb-4">
+            Obras Visuales
+          </h2>
+          <p className="text-gray-300">
+            Carrusel con obras visuales propias, estilo artístico contemporáneo y
+            expresivo.
+          </p>
+        </div>
+        <ArtCarousel />
+      </section> */}
+
+        <YouTubeSpotlight />
+
+      <section
+        ref={actorRef}
+        className="transition-all duration-500 ease-in-out px-6 py-12 bg-black/80"
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-violet-400 mb-6 text-center">
+            Experiencia como Actor
+          </h2>
+          <ActorExperience />
+        </div>
+      </section>
+
+      <ContactSection ref={contactRef} />
+
+      <footer className="bg-black py-8 text-center text-gray-400 text-sm border-t border-violet-800">
+        <Footer />
+      </footer>
+
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-violet-600 text-white rounded-full p-3 shadow-lg hover:bg-violet-400 transition-all"
+          aria-label="Volver arriba"
+        >
+          ↑
+        </button>
+      )}
+
+        <BackgroundMusicPlayer />
+        </>
+      )}
+    </div>
+    </AudioControlProvider>
+  );
+};
+
+export default App;
