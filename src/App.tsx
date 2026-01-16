@@ -81,28 +81,28 @@ const App: React.FC = () => {
         <NavBar />
       </header>
 
-      <section className="text-center py-8 sm:py-12">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+      <section className="text-center py-6 sm:py-8 md:py-12 px-4">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-wide text-center">
           Ariel ottaviani– Actor & Artista Visual
         </h1>
-        <p className="mt-3 sm:mt-4 text-gray-300 text-base sm:text-lg">
+        <p className="mt-2 sm:mt-3 md:mt-4 text-gray-300 text-sm sm:text-base md:text-lg">
           Portfolio profesional y artístico
         </p>
       </section>
 
       <section
         ref={photoRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-black"
+        className="flex flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-black"
       >
-        <PhotoCarousel />
-        <div className="text-center md:text-left">
+        <div className="text-center w-full max-w-2xl">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-300 mb-3 sm:mb-4">
             Galería Fotográfica
           </h2>
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-sm sm:text-base">
             Fotografías seleccionadas de proyectos actorales y artísticos.
           </p>
         </div>
+        <PhotoCarousel />
       </section>
 
         {/* Galería en Cuadrícula */}
@@ -130,26 +130,28 @@ const App: React.FC = () => {
 
       <section
         ref={actorRef}
-        className="transition-all duration-500 ease-in-out px-4 sm:px-6 py-8 sm:py-10 md:py-12 bg-black/80"
+        className="transition-all duration-500 ease-in-out px-4 sm:px-6 py-6 sm:py-8 md:py-12 bg-black/80"
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-400 mb-4 sm:mb-6 text-center">
             Experiencia como Actor
           </h2>
-          <ActorExperience />
+          <div className="flex justify-center">
+            <ActorExperience />
+          </div>
         </div>
       </section>
 
       <ContactSection ref={contactRef} />
 
-      <footer className="bg-black py-8 text-center text-gray-400 text-sm border-t border-violet-800">
+      <footer className="bg-black py-6 sm:py-8 text-center text-gray-400 text-xs sm:text-sm border-t border-violet-800 px-4">
         <Footer />
       </footer>
 
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-violet-600 text-white rounded-full p-3 shadow-lg hover:bg-violet-400 transition-all"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-violet-600 text-white rounded-full p-2 sm:p-3 shadow-lg hover:bg-violet-400 transition-all"
           aria-label="Volver arriba"
         >
           ↑

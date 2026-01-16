@@ -114,7 +114,7 @@ const TimelineItem: React.FC<{ item: ExperienceItem; inverted: boolean }> = ({ i
 
 const ActorExperience: React.FC = () => {
   return (
-    <div className="relative max-w-3xl mx-auto px-4 sm:px-0">
+    <div className="relative w-full max-w-3xl mx-auto px-2 sm:px-4 md:px-0">
       {experienceData.map((item: ExperienceItem, idx: number) => (
         <TimelineItem key={item.id} item={item} inverted={idx % 2 === 0} />
       ))}
