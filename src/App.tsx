@@ -71,7 +71,7 @@ const App: React.FC = () => {
 
   return (
     <AudioControlProvider>
-    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-black to-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-violet-900 via-black to-black text-white overflow-x-hidden w-full">
       {/* Cover Screen */}
       {showCover && <Cover onEnter={handleEnterPortfolio} />}
       

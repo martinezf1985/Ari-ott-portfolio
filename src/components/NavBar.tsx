@@ -33,7 +33,7 @@ const NavBar: React.FC = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="relative">
+    <nav className="relative w-full flex justify-center md:justify-center">
       {/* Menú desktop */}
       <div className="hidden md:flex justify-center gap-8 text-lg font-medium text-violet-300">
         {navItems.map(({ label, to }) => (
@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
 
       {/* Botón hamburguesa móvil */}
       <button
-        className="md:hidden absolute right-0 top-0 text-violet-300 hover:text-white transition-colors p-2"
+        className="md:hidden absolute right-4 top-0 text-violet-300 hover:text-white transition-colors p-2"
         onClick={(e) => {
           e.stopPropagation();
           setIsMenuOpen(!isMenuOpen);

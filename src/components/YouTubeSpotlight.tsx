@@ -18,7 +18,7 @@
 //   const { pauseBackground, resumeBackground } = useAudioControls();
 
 //   return (
-//     <section className="px-6 py-16 bg-black">
+//     <section className="px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-black">
 //       <div className="max-w-5xl mx-auto">
 //         <header className="mb-6 text-center">
 //           <p className="uppercase tracking-[0.3em] text-xs text-violet-400">
@@ -75,7 +75,7 @@ const YouTubeCarousel: React.FC = () => {
   const { pauseBackground, resumeBackground } = useAudioControls();
 
   return (
-    <section className="px-6 py-16 bg-black">
+    <section className="px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-black">
       <div className="max-w-5xl mx-auto">
         <header className="mb-8 text-center">
           <p className="uppercase tracking-[0.3em] text-xs text-violet-400">
