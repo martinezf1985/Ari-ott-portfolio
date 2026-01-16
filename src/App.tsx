@@ -92,7 +92,7 @@ const App: React.FC = () => {
 
       <section
         ref={photoRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 bg-black"
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-6 py-16 bg-black"
       >
         <PhotoCarousel />
         <div className="text-center md:text-left">
@@ -106,13 +106,13 @@ const App: React.FC = () => {
       </section>
 
         {/* Galería en Cuadrícula */}
-        <section className="px-6 py-16 bg-gray-950/90">
+        <section className="px-4 sm:px-6 py-16 bg-gray-950/90">
           <PhotoGrid />
         </section>
 
       {/* <section
         ref={artRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-16 items-center bg-gray-950/90"
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-6 py-16 items-center bg-gray-950/90"
       >
         <div>
           <h2 className="text-3xl font-semibold text-violet-400 mb-4">

@@ -16,7 +16,6 @@
     "@mui/material": "^7.1.0",
     "@tsparticles/react": "^3.0.0",
     "@types/swiper": "^6.0.0",
-    "actor-portfolio": "file:",
     "flowbite": "^3.1.2",
     "framer-motion": "^12.12.1",
     "howler": "^2.2.4",

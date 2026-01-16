@@ -20,7 +20,7 @@ const PhotoCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto bg-black rounded-2xl shadow-2xl overflow-hidden aspect-[3/4]">
+    <div className="relative w-full max-w-4xl mx-auto bg-black rounded-2xl shadow-2xl overflow-hidden aspect-[3/4] sm:aspect-[4/3]">
       <Swiper
         spaceBetween={30}
         centeredSlides
