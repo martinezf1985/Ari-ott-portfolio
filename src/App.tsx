@@ -77,26 +77,26 @@ const App: React.FC = () => {
       
       {!showCover && (
         <>
-      <header className="py-6 bg-black/70 shadow-md">
+      <header className="py-4 sm:py-6 bg-black/70 shadow-md">
         <NavBar />
       </header>
 
-      <section className="text-center py-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-wide">
+      <section className="text-center py-8 sm:py-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
           Ariel ottaviani– Actor & Artista Visual
         </h1>
-        <p className="mt-4 text-gray-300 text-lg">
+        <p className="mt-3 sm:mt-4 text-gray-300 text-base sm:text-lg">
           Portfolio profesional y artístico
         </p>
       </section>
 
       <section
         ref={photoRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-6 py-16 bg-black"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-black"
       >
         <PhotoCarousel />
         <div className="text-center md:text-left">
-          <h2 className="text-3xl font-bold text-violet-300 mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-300 mb-3 sm:mb-4">
             Galería Fotográfica
           </h2>
           <p className="text-gray-400">
@@ -106,13 +106,13 @@ const App: React.FC = () => {
       </section>
 
         {/* Galería en Cuadrícula */}
-        <section className="px-4 sm:px-6 py-16 bg-gray-950/90">
+        <section className="px-4 sm:px-6 py-8 sm:py-12 md:py-16 bg-gray-950/90">
           <PhotoGrid />
         </section>
 
       {/* <section
         ref={artRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 sm:px-6 py-16 items-center bg-gray-950/90"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12 md:py-16 items-center bg-gray-950/90"
       >
         <div>
           <h2 className="text-3xl font-semibold text-violet-400 mb-4">
@@ -130,10 +130,10 @@ const App: React.FC = () => {
 
       <section
         ref={actorRef}
-        className="transition-all duration-500 ease-in-out px-6 py-12 bg-black/80"
+        className="transition-all duration-500 ease-in-out px-4 sm:px-6 py-8 sm:py-10 md:py-12 bg-black/80"
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-violet-400 mb-6 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-violet-400 mb-4 sm:mb-6 text-center">
             Experiencia como Actor
           </h2>
           <ActorExperience />

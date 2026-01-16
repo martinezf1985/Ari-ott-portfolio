@@ -90,7 +90,7 @@ const TimelineItem: React.FC<{ item: ExperienceItem; inverted: boolean }> = ({ i
   return (
     <div
       ref={ref}
-      className={`relative pl-12 mb-10 transition-all duration-700 ease-out ${
+      className={`relative pl-6 sm:pl-8 md:pl-12 mb-6 sm:mb-8 md:mb-10 transition-all duration-700 ease-out ${
         inView
           ? "opacity-100 translate-x-0"
           : inverted
@@ -103,7 +103,7 @@ const TimelineItem: React.FC<{ item: ExperienceItem; inverted: boolean }> = ({ i
         <div className="w-2 h-2 bg-violet-400 rounded-full"></div>
         <div className="flex-1 w-px bg-gray-700"></div>
       </div>
-      <div className="bg-gray-900/50 rounded-xl p-6">
+      <div className="bg-gray-900/50 rounded-xl p-4 sm:p-6">
         <span className="text-sm text-gray-500">{item.date}</span>
         <h3 className="text-xl font-semibold text-violet-300 mt-1">{item.title}</h3>
         <p className="text-gray-300 mt-2 leading-relaxed whitespace-pre-wrap">{item.detail}</p>
